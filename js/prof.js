@@ -47,6 +47,7 @@ async function salvarAvaliacao(ficha) {
     const avaliacoes = {};
     let incompleto = false;
 
+    // 1. Coleta as opções marcadas
     tab.querySelectorAll('.eval-row').forEach(row => {
         const selected = row.querySelector('.eval-btn.selected');
         if (selected) {
@@ -63,19 +64,30 @@ async function salvarAvaliacao(ficha) {
 
     const obs = document.getElementById(`obs-${ficha}`).value;
     
+    // 2. Prepara o objeto (compatível com Apps Script)
     const registro = {
+        campo: "avaliação_geral", 
+        valor: JSON.stringify(avaliacoes), // guarda as notas
         data: new Date().toISOString().split('T')[0],
-        avaliacoes: avaliacoes,
+        professor: "Não Identificado", // No futuro, pode puxar do login/config
         observacao: obs,
+        synced: false,
         timestamp: new Date().getTime()
     };
 
     try {
         await salvarRegistro(ficha, registro);
-        alert(`${ficha.toUpperCase()} salva com sucesso offline!`);
-        // Reset form
+        alert(`${ficha.toUpperCase()} salva localmente!`);
+        
+        // Limpa formulário da tela
         tab.querySelectorAll('.eval-btn').forEach(b => b.classList.remove('selected'));
         document.getElementById(`obs-${ficha}`).value = '';
+        
+        // Tenta sincronizar se tiver internet
+        if (navigator.onLine && typeof sincronizarTudo === 'function') {
+            sincronizarTudo(false);
+        }
+
     } catch (e) {
         console.error(e);
         alert("Erro ao salvar no banco local.");

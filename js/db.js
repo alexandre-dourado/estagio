@@ -49,3 +49,15 @@ const listarRegistros = async (storeName) => {
         request.onerror = () => reject(request.error);
     });
 };
+
+const atualizarRegistro = async (storeName, data) => {
+    if (!db) await initDB();
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([storeName], "readwrite");
+        const store = transaction.objectStore(storeName);
+        // put() atualiza o registro existente porque estamos usando keyPath: 'id'
+        const request = store.put(data); 
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+};
