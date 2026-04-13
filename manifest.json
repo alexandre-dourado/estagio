@@ -1,0 +1,20 @@
+{
+  "name": "Estágio App",
+  "short_name": "Estágio",
+  "start_url": "./app.html",
+  "display": "standalone",
+  "background_color": "#f4f4f9",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "https://www.google.com/s2/favicons?sz=192&domain=google.com",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.google.com/s2/favicons?sz=512&domain=google.com",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

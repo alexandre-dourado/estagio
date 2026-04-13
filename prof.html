@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Estágio - Professor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Avaliação do Estagiário</h1>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-target="ficha3">Ficha III</button>
+            <button class="tab-btn" data-target="ficha4">Ficha IV</button>
+        </div>
+
+        <div class="card">
+            <div id="ficha3" class="tab-content active">
+                <form id="form-ficha3">
+                    <div id="criterios-ficha3"></div> <div class="form-group" style="margin-top: 1rem;">
+                        <label>Observações</label>
+                        <textarea id="obs-ficha3" rows="2"></textarea>
+                    </div>
+                    <button type="button" class="btn" onclick="salvarAvaliacao('ficha3')">Salvar Ficha III</button>
+                </form>
+            </div>
+
+            <div id="ficha4" class="tab-content">
+                <form id="form-ficha4">
+                    <div id="criterios-ficha4"></div> <div class="form-group" style="margin-top: 1rem;">
+                        <label>Observações finais</label>
+                        <textarea id="obs-ficha4" rows="2"></textarea>
+                    </div>
+                    <button type="button" class="btn" onclick="salvarAvaliacao('ficha4')">Salvar Ficha IV</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/prof.js"></script>
+</body>
+</html>
