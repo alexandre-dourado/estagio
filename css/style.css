@@ -49,3 +49,75 @@ input:focus, select:focus { outline: none; border-color: var(--primary); backgro
 
 /* Utility */
 .hidden { display: none; }
+
+/* =========================================
+   NOVO DASHBOARD & SELETOR DE ESTÁGIO
+   ========================================= */
+
+/* Seletor no topo (7º e 8º) */
+.internship-selector {
+    display: flex;
+    background: #e5e7eb;
+    border-radius: 20px;
+    padding: 4px;
+    width: fit-content;
+    margin: 0 auto 1rem;
+}
+
+.sel-btn {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1.5rem;
+    border-radius: 16px;
+    font-weight: bold;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sel-btn.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#estagio-titulo { font-size: 1.8rem; margin-bottom: 0.2rem; transition: color 0.3s ease; }
+
+/* Barra de Progresso (Dashboard) */
+.dashboard { border-top: 4px solid var(--primary); transition: border-color 0.3s ease; }
+
+.progress-container { margin-bottom: 1.5rem; }
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0%; /* Alterado via JS */
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+.progress-text { text-align: right; font-size: 0.85rem; font-weight: bold; color: var(--text-light); }
+
+/* Grid de Estatísticas (Tipos de Atividade) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.8rem;
+}
+.stat-item {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.stat-item small { font-size: 0.75rem; color: var(--text-light); margin-bottom: 0.3rem; line-height: 1.1;}
+.stat-item strong { font-size: 1.1rem; color: var(--primary); transition: color 0.3s ease; }
