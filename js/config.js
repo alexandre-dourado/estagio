@@ -27,7 +27,7 @@ const appConfig = {
         "Preparação de Aula",
         "Preparação de Material",
         "Regência"
-    ]
+    ],
         api: {
         // COLE AQUI A URL GERADA NO GOOGLE APPS SCRIPT
         url: "https://script.google.com/macros/s/AKfycbwpXJHxAZM9S_g9JQaYALSLUenQkzvuQBtNEGGtVk1tOYb_eYnaCFfHppOf296YXKQE/exec"
