@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Estágio - Professor</title>
+    <title>Estágio - Avaliação do Professor</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
+    <style>
+        /* Estilo extra para os títulos das categorias da Ficha 4 */
+        .categoria-titulo { margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); color: var(--primary); font-size: 1.1rem; }
+        .eval-row p { font-size: 0.95rem; line-height: 1.3; margin-bottom: 0.6rem; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -21,20 +26,27 @@
         <div class="card">
             <div id="ficha3" class="tab-content active">
                 <form id="form-ficha3">
-                    <div id="criterios-ficha3"></div> <div class="form-group" style="margin-top: 1rem;">
-                        <label>Observações</label>
-                        <textarea id="obs-ficha3" rows="2"></textarea>
+                    <div id="criterios-ficha3"></div> <div class="form-group" style="margin-top: 1.5rem;">
+                        <label>Observação das aulas</label>
+                        <textarea id="obs-ficha3" rows="3" placeholder="Insira suas observações..."></textarea>
                     </div>
+                    
                     <button type="button" class="btn" onclick="salvarAvaliacao('ficha3')">Salvar Ficha III</button>
                 </form>
             </div>
 
             <div id="ficha4" class="tab-content">
                 <form id="form-ficha4">
-                    <div id="criterios-ficha4"></div> <div class="form-group" style="margin-top: 1rem;">
-                        <label>Observações finais</label>
-                        <textarea id="obs-ficha4" rows="2"></textarea>
+                    <div id="criterios-ficha4"></div> <h3 class="categoria-titulo">5 – Outros aspectos que não constam nesta ficha</h3>
+                    <div class="form-group">
+                        <label>Positivos</label>
+                        <textarea id="obs-positivos" rows="2"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>Negativos</label>
+                        <textarea id="obs-negativos" rows="2"></textarea>
+                    </div>
+                    
                     <button type="button" class="btn" onclick="salvarAvaliacao('ficha4')">Salvar Ficha IV</button>
                 </form>
             </div>
@@ -43,6 +55,7 @@
 
     <script src="js/config.js"></script>
     <script src="js/db.js"></script>
-    <script src="js/sync.js"></script> <script src="js/prof.js"></script> </body>
+    <script src="js/sync.js"></script>
+    <script src="js/prof.js"></script>
 </body>
 </html>

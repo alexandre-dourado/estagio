@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Estágio - Diário</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+    <div class="internship-selector">
+        <button class="sel-btn active" onclick="switchEstagio(7)">7º</button>
+        <button class="sel-btn" onclick="switchEstagio(8)">8º</button>
+    </div>
+    <h1 id="estagio-titulo">Estágio 7º</h1>
+    <p id="estagio-info" style="font-size: 0.8rem; color: var(--text-light);"></p>
+</header>
+<div class="card">
+            <form id="form-diario">
+                <div class="form-group">
+                    <label>Tipo de Atividade</label>
+                    <select id="tipo_atividade" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Descrição e Observações</label>
+                    <textarea id="atividade" rows="3" required placeholder="Relato do dia..."></textarea>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Data</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Horas</label>
+                        <input type="number" id="horas" required min="0.5" step="0.5" placeholder="Ex: 4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="btn btn-outline" style="cursor: pointer; text-align: center;">
+                        📷 Adicionar Foto
+                        <input type="file" id="foto" accept="image/*" style="display:none" onchange="previewFoto(this)">
+                    </label>
+                    <div id="foto-preview"></div> </div>
+                
+                <button type="submit" class="btn">Salvar no Diário</button>
+            </form>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem;">
+            <h3 style="color: var(--text-light); margin: 0;">Registros Recentes</h3>
+            <button type="button" id="btn-sync" class="btn-outline" style="padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.9rem; cursor: pointer;">
+                Sincronizar ☁️
+            </button>
+        </div>
+        
+        <ul id="lista-atividades" class="lista-registros"></ul>
+    
+    <script src="js/config.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/sync.js"></script> <script src="js/app.js"></script> </body>
+</body>
+</html>
